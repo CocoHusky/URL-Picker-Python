@@ -7,7 +7,7 @@ A standalone Python tool that collects open browser tabs from supported macOS br
 ## Quick Start
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/browser-url-grabber.git
+git clone https://github.com/CocoHusky/browser-url-grabber.git
 cd browser-url-grabber
 python3 src/grab_browser_urls_mac.py
 ```
