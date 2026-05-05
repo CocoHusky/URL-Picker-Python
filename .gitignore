@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+
+# macOS
+.DS_Store
+
+# Build outputs
+build/
+dist/
+*.spec
+
+# Local exports
+browser_urls_*.json
+
+# IDE
+.vscode/
+.idea/
