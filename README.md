@@ -197,7 +197,6 @@ browser-url-grabber/
 ├─ LICENSE
 ├─ RELEASE.md
 ├─ CHANGELOG.md
-├─ requirements.txt
 └─ .gitignore
 ```
 
