@@ -103,6 +103,25 @@ def main():
         if browser_data:
             output_data[browser_label] = browser_data
 
+    # Create summary
+    total_urls = sum(len(tabs) for browser in output_data.values() for tabs in browser.values())
+    browser_tab_counts = {
+        browser: sum(len(tabs) for tabs in data.values())
+        for browser, data in output_data.items()
+    }
+
+    summary = {
+        "summary": {
+            "total_browsers": len(output_data),
+            "browsers": browser_tab_counts,
+            "total_urls": total_urls,
+            "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        }
+    }
+
+    # Combine summary with browser data
+    final_output = {**summary, **output_data}
+
     stamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     repo_root = Path(__file__).resolve().parents[1]
     out_dir = Path.home() / "Documents" / "Browser URL Grabber" / "json output"
@@ -110,7 +129,7 @@ def main():
     out_path = out_dir / f"browser_urls_{stamp}.json"
 
     out_path.write_text(
-        json.dumps(output_data, indent=2, ensure_ascii=False),
+        json.dumps(final_output, indent=2, ensure_ascii=False),
         encoding="utf-8"
     )
 
