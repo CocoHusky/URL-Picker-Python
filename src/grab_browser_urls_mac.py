@@ -28,16 +28,7 @@ def app_running(app_name: str) -> bool:
 
 
 def window_label(index: int) -> str:
-    letters = "abcdefghijklmnopqrstuvwxyz"
-    label = ""
-
-    index += 1
-    while index > 0:
-        index -= 1
-        label = letters[index % 26] + label
-        index //= 26
-
-    return label
+    return f"window_{index + 1}"
 
 
 def grab_tabs(browser_label: str, app_name: str):
