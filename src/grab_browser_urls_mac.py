@@ -123,7 +123,7 @@ def main():
         encoding="utf-8"
     )
 
-    print(out_path)
+    print(f"Saved to: {out_path}")
 
 
 if __name__ == "__main__":
