@@ -1,82 +1,96 @@
 # Browser URL Grabber (macOS)
 
-A standalone Python tool that collects open browser tabs from supported macOS browsers and exports them into structured JSON grouped by browser and window.
+A standalone macOS tool that collects open browser tabs from supported browsers and exports them into structured JSON grouped by browser and window.
 
 ---
 
-## Quick Start
+## Use Options
+
+You can use this project in two ways:
+
+| Option | Best For | Requires Python? |
+|---|---|---:|
+| Download the `.app` from Releases | Normal users | No |
+| Run the Python script directly | Developers / testing | Yes |
+
+---
+
+## Option 1 — Use the macOS App
+
+1. Go to the repo’s **Releases** page:
+
+```text
+https://github.com/CocoHusky/browser-url-grabber/releases
+```
+
+2. Download the latest macOS release `.zip`.
+
+Example:
+
+```text
+Browser-URL-Grabber-macOS-v0.1.1.zip
+```
+
+3. Unzip it.
+
+4. Open:
+
+```text
+Browser URL Grabber.app
+```
+
+On first launch, macOS may block the app because it is unsigned.
+
+Use:
+
+```text
+Right click → Open
+```
+
+Then approve the prompt.
+
+---
+
+## Option 2 — Run Directly With Python
+
+Clone the repo:
 
 ```bash
 git clone https://github.com/CocoHusky/browser-url-grabber.git
 cd browser-url-grabber
-python3 src/grab_browser_urls_mac.py
 ```
 
----
-
-## Requirements
-
-| Requirement | Needed? | Notes |
-|---|---:|---|
-| macOS | Yes | Current version is macOS only |
-| Python 3 | Yes | No extra Python packages required |
-| Terminal | Yes | Used to run the script |
-| Browser automation permission | Yes | Required by macOS privacy settings |
-| Browser extension | No | This does not use an extension |
-| Internet access | No | The script reads local open browser tabs |
-
----
-
-## Check Python
+Check Python:
 
 ```bash
 python3 --version
 ```
 
-If Python 3 is installed, you should see:
-
-```text
-Python 3.x.x
-```
-
----
-
-## Install Python If Missing
-
-Download from:
-
-```text
-https://www.python.org/downloads/
-```
-
-Or install with Homebrew:
-
-```bash
-brew install python
-```
-
----
-
-## How to Run
-
-From the project root:
+Run the script:
 
 ```bash
 python3 src/grab_browser_urls_mac.py
 ```
 
-Optional executable mode:
+No extra Python packages are required.
 
-```bash
-chmod +x src/grab_browser_urls_mac.py
-./src/grab_browser_urls_mac.py
-```
+---
+
+## Requirements
+
+| Requirement | App Release | Python Dev Run | Notes |
+|---|---:|---:|---|
+| macOS | Yes | Yes | Current version is macOS only |
+| Python 3 | No | Yes | Only needed for direct script use |
+| Browser automation permission | Yes | Yes | Required by macOS privacy settings |
+| Browser extension | No | No | This does not use an extension |
+| Internet access | No | No | Reads local open browser tabs only |
 
 ---
 
 ## Output Location
 
-JSON files are saved inside the repo:
+JSON files are saved inside:
 
 ```text
 browser-url-grabber/json output/
@@ -87,6 +101,8 @@ Example:
 ```text
 browser-url-grabber/json output/browser_urls_2026-05-05_14-30-10.json
 ```
+
+If using the packaged `.app`, output behavior may depend on the packaged app version. Check the release notes for that version.
 
 ---
 
@@ -106,7 +122,7 @@ browser-url-grabber/json output/browser_urls_2026-05-05_14-30-10.json
 
 ## macOS Privacy Permission
 
-macOS may block Terminal or Python from reading browser tabs until permission is approved.
+macOS may block the app, Terminal, or Python from reading browser tabs until permission is approved.
 
 Go to:
 
@@ -114,13 +130,14 @@ Go to:
 System Settings → Privacy & Security → Automation
 ```
 
-Enable browser control permissions for the app running the script.
+Enable browser control permissions for whichever app is running Browser URL Grabber.
 
-| App requesting permission | Allow access to |
-|---|---|
-| Terminal | Safari, Chrome, Edge, Brave, Arc |
-| iTerm | Safari, Chrome, Edge, Brave, Arc |
-| Python | Safari, Chrome, Edge, Brave, Arc |
+| Running Method | App requesting permission | Allow access to |
+|---|---|---|
+| `.app` release | Browser URL Grabber | Safari, Chrome, Edge, Brave, Arc |
+| Terminal run | Terminal | Safari, Chrome, Edge, Brave, Arc |
+| iTerm run | iTerm | Safari, Chrome, Edge, Brave, Arc |
+| Python launcher | Python | Safari, Chrome, Edge, Brave, Arc |
 
 If output is empty, incomplete, or only one browser works, check Automation permissions first.
 
@@ -165,7 +182,7 @@ If output is empty, incomplete, or only one browser works, check Automation perm
 | Browsers must be open | Closed browsers are skipped |
 | Private/incognito tabs | May not be readable depending on browser behavior |
 | No network sniffing | This only reads actual browser tabs |
-| No GUI yet | Current version runs from Terminal |
+| No GUI yet | Current version may run silently |
 | Firefox not supported yet | Planned for later |
 
 ---
