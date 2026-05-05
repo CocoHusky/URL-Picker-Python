@@ -131,7 +131,7 @@ If output is empty, incomplete, or only one browser works, check Automation perm
 ```json
 {
   "Safari": {
-    "a": [
+    "window_1": [
       {
         "tab_name": "Example Safari Tab",
         "url": "https://example.com"
@@ -139,13 +139,13 @@ If output is empty, incomplete, or only one browser works, check Automation perm
     ]
   },
   "Chrome": {
-    "a": [
+    "window_1": [
       {
         "tab_name": "Example Chrome Tab",
         "url": "https://github.com/"
       }
     ],
-    "b": [
+    "window_2": [
       {
         "tab_name": "Another Window",
         "url": "https://openai.com/"
@@ -154,22 +154,6 @@ If output is empty, incomplete, or only one browser works, check Automation perm
   }
 }
 ```
-
----
-
-## Window Labels
-
-Browser windows are labeled alphabetically.
-
-| Window Number | Label |
-|---:|---|
-| 1 | `a` |
-| 2 | `b` |
-| 3 | `c` |
-| 26 | `z` |
-| 27 | `aa` |
-| 28 | `ab` |
-| 29 | `ac` |
 
 ---
 
